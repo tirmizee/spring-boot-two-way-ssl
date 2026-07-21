@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+secure-server:
+  base-url: https://localhost:9443
+  ssl-bundle: mtls-client
+
+spring:
+  ssl:
+    bundle:
+      jks:
+        mtls-client:
+          key:
+            alias: mtls-client
+          keystore:
+            location: classpath:certs/mtls-client-keystore.p12
+            password: changeit
+            type: PKCS12
+          truststore:
+            location: classpath:certs/mtls-client-truststore.p12
+            password: changeit
+            type: PKCS12

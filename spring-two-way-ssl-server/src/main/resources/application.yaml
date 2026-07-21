@@ -1,0 +1,24 @@
+server:
+  port: 9443
+  ssl:
+    enabled: true
+    bundle: mtls-server
+    client-auth: need
+
+spring:
+  application:
+    name: spring-two-way-ssl-server
+  ssl:
+    bundle:
+      jks:
+        mtls-server:
+          key:
+            alias: mtls-server
+          keystore:
+            location: classpath:certs/mtls-server-keystore.p12
+            password: changeit
+            type: PKCS12
+          truststore:
+            location: classpath:certs/mtls-server-truststore.p12
+            password: changeit
+            type: PKCS12
